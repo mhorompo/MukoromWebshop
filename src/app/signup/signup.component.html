@@ -1,0 +1,40 @@
+<div fxLayoutAlign="center center" class="signup-div">
+    <mat-card fxFlex.sm="50" fxFlex.xs="100" fxFlex.md="50" fxFlex="30">
+      <mat-toolbar color="primary">
+        <span>Regisztráció</span>
+      </mat-toolbar>
+      <form
+        [formGroup]="signupForm"
+        fxLayoutAlign="streth"
+        fxLayout="column"
+        class="signup-form"
+      >
+        <mat-form-field>
+          <input matInput placeholder="Email" formControlName="email" />
+          <mat-error *ngIf="signupForm.get('email')?.errors?.['required']"
+            >Kötelező kitölteni!</mat-error
+          >
+          <mat-error *ngIf="signupForm.get('email')?.errors?.['email']"
+            >Hibás email formátum!</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            type="password"
+            matInput
+            formControlName="password"
+            placeholder="Jelszó"
+          />
+          <mat-error *ngIf="signupForm.get('password')?.errors?.['required']"
+            >Kötelező kitölteni!</mat-error
+          >
+          <mat-error *ngIf="signupForm.get('password')?.errors?.['minlength']"
+            >Legalább 6 karakter hosszú kell legyen!</mat-error
+          >
+        </mat-form-field>
+        <button (click)="submit()" mat-raised-button color="accent">
+          Belépés
+        </button>
+      </form>
+    </mat-card>
+  </div>

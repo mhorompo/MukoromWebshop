@@ -1,0 +1,14 @@
+.signup-div mat-card {
+    padding: 0px;
+    margin-top: 200px;
+    border-radius: 25px;
+  }
+  
+  mat-toolbar{
+      border-start-start-radius: 25px;
+      border-start-end-radius: 25px;
+  }
+  .signup-form {
+    padding: 20px;
+  }
+  

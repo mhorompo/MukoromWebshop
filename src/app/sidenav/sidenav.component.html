@@ -1,0 +1,18 @@
+<mat-nav-list>
+    <a *ngIf="!loggedUser" mat-list-item routerLink="/signin" (click)="closeSidenav()">
+        <mat-icon>login</mat-icon>
+        <span>Belépés</span>
+    </a>
+    <a *ngIf="!loggedUser" mat-list-item routerLink="/signup" (click)="closeSidenav()">
+        <mat-icon>app_registration</mat-icon>
+        <span>Regisztráció</span>
+    </a>
+    <a *ngIf="loggedUser" mat-list-item (click)="closeSidenav()">
+        <mat-icon>logout</mat-icon>
+        <span>Kijelentkezés</span>
+    </a>
+    <a *ngIf="loggedUser" mat-list-item routerLink="home/cart" (click)="closeSidenav()">
+        <mat-icon>shopping_cart</mat-icon>
+        <span>Kosár</span>
+    </a>
+</mat-nav-list>

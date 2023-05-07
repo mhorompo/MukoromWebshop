@@ -1,0 +1,24 @@
+<div class="content">
+  <div *ngFor="let product of products">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{product.nev}}</mat-card-title>
+      </mat-card-header>
+      <img  
+        mat-card-image
+        src="assets/{{product.kep}}"
+        alt="Photo of a Shiba Inu"
+        appProductImageZoom
+      />
+      <mat-card-content>
+        <p>
+          {{product.leiras}}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button (click)="addToCart(product)" mat-raised-button color="accent">Kosárba</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

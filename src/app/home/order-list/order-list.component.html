@@ -1,0 +1,58 @@
+
+<div class="order-container">
+<div *ngIf="orders.length == 0">
+    Nicsenek rendelések.
+</div>
+<div *ngIf="orders.length > 0">
+<table
+mat-table
+[dataSource]="orders"
+*ngIf="orders.length > 0"
+class="mat-elevation-z8"
+>
+<ng-container matColumnDef="veznev">
+  <th mat-header-cell *matHeaderCellDef>Vezetéknév</th>
+  <td mat-cell *matCellDef="let product">{{ product.veznev }}</td>
+  <td mat-footer-cell *matFooterCellDef>Fizetendő összesen:</td>
+</ng-container>
+
+<ng-container matColumnDef="kernev">
+  <th mat-header-cell *matHeaderCellDef>Keresztnév</th>
+  <td mat-cell *matCellDef="let product">
+    {{ product.kernev }}
+  </td>
+</ng-container>
+
+<ng-container matColumnDef="tel">
+  <th mat-header-cell *matHeaderCellDef>Telefonszám</th>
+  <td mat-cell class="text-right" *matCellDef="let product"> {{product.tel}}</td>
+</ng-container>
+
+<ng-container matColumnDef="irsz">
+  <th mat-header-cell *matHeaderCellDef>Irányítószám</th>
+  <td class="text-right" mat-cell *matCellDef="let product">{{ product.irsz }}</td>
+</ng-container>
+
+<ng-container matColumnDef="varos">
+    <th mat-header-cell *matHeaderCellDef>Város</th>
+    <td class="text-right" mat-cell *matCellDef="let product">{{ product.varos }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="utca_hsz">
+    <th mat-header-cell *matHeaderCellDef>Utca, házszám</th>
+    <td class="text-right" mat-cell *matCellDef="let product">{{ product.utca_hsz }}</td>
+  </ng-container>
+  <ng-container matColumnDef="termekek_count">
+    <th mat-header-cell *matHeaderCellDef>Rendelt termékek száma</th>
+    <td class="text-right" mat-cell *matCellDef="let product">{{ product.product.length }}</td>
+  </ng-container>
+<ng-container matColumnDef="muveletek">
+  <th appTableHeaderColor mat-header-cell *matHeaderCellDef=>Műveletek</th>
+  <td mat-cell *matCellDef="let element"><mat-icon appChangeColorOnHover (click)="onDelete(element)">delete</mat-icon></td>
+</ng-container>
+
+<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+<tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+</div>
+</div>

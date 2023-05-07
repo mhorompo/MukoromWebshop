@@ -1,0 +1,84 @@
+<mat-stepper linear #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form fxLayoutAlign="streth" fxLayout="column" [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Személyes adatok</ng-template>
+      <mat-form-field appearance="fill">
+        <mat-label>Vezetéknév</mat-label>
+        <input matInput formControlName="veznev" />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Keresztnév</mat-label>
+        <input matInput formControlName="kernev" />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Telefonszám</mat-label>
+        <input matInput formControlName="tel" />
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Következő</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form
+      fxLayoutAlign="streth"
+      fxLayout="column"
+      [formGroup]="secondFormGroup"
+    >
+      <ng-template matStepLabel>Szállítási cím</ng-template>
+      <mat-form-field appearance="fill">
+        <mat-label>Irányítószám</mat-label>
+        <input matInput formControlName="irsz" />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Város</mat-label>
+        <input matInput formControlName="varos" />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Utca házszám</mat-label>
+        <input matInput formControlName="utca_hsz" />
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Vissza</button>
+        <button mat-button matStepperNext>Következő</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Összegzés</ng-template>
+    <mat-list>
+      <mat-list-item>
+        <span matListItemTitle>Vezetéknév</span>
+        <span matListItemLine>{{ firstFormGroup.get("veznev")?.value }}</span>
+      </mat-list-item>
+      <mat-list-item>
+        <span matListItemTitle>Keresztnév</span>
+        <span matListItemLine>{{ firstFormGroup.get("kernev")?.value }}</span>
+      </mat-list-item>
+      <mat-list-item>
+        <span matListItemTitle>Telefonszám</span>
+        <span matListItemLine>{{ firstFormGroup.get("tel")?.value }}</span>
+      </mat-list-item>
+      <mat-list-item>
+        <span matListItemTitle>Irányítószám</span>
+        <span matListItemLine>{{ secondFormGroup.get("irsz")?.value }}</span>
+      </mat-list-item>
+      <mat-list-item>
+        <span matListItemTitle>Város</span>
+        <span matListItemLine>{{ secondFormGroup.get("varos")?.value }}</span>
+      </mat-list-item>
+      <mat-list-item>
+        <span matListItemTitle>Utca, házszám</span>
+        <span matListItemLine>{{
+          secondFormGroup.get("utca_hsz")?.value
+        }}</span>
+      </mat-list-item>
+    </mat-list>
+
+    <div>
+      <button mat-button (click)="sendOrder()">Rendelés véglegesítése</button>
+      <button mat-button matStepperPrevious>Vissza</button>
+      <button mat-button (click)="stepper.reset()">Visszaállítás</button>
+    </div>
+  </mat-step>
+</mat-stepper>

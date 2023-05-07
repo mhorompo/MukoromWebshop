@@ -1,0 +1,36 @@
+table {
+  width: 100%;
+}
+
+tr.mat-mdc-footer-row td {
+  font-weight: bold;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.content {
+  width: 75%;
+  margin: 0 auto;
+}
+mat-icon {
+  cursor: pointer;
+}
+.shopping-cart-container {
+  width: 80%;
+  overflow: auto;
+  margin: 25px auto;
+}
+
+.qt_input {
+  margin-top: 10px;
+}
+
+.order-btn-container {
+  margin-bottom: 10px;
+}
+
+img {
+  width: 20%;
+}
